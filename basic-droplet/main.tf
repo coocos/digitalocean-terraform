@@ -8,5 +8,6 @@ resource "digitalocean_droplet" "web" {
   name   = "web"
   size   = "s-1vcpu-1gb"
 
-  ssh_keys = [data.digitalocean_ssh_key.ssh_key.id]
+  ssh_keys  = [data.digitalocean_ssh_key.ssh_key.id]
+  user_data = file("http_server.sh")
 }
