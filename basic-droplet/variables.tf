@@ -1,16 +1,20 @@
 variable "api_token" {
-  type = string
+  description = "DigitalOcean API token"
+  type        = string
 }
 
 variable "ssh_key" {
-  type = string
+  description = "Name of SSH key used for droplet access"
+  type        = string
 }
 
 variable "domain" {
-  type = string
+  description = "Name of domain to point to the droplet"
+  type        = string
 }
 
 variable "region" {
-  type    = string
-  default = "ams3"
+  description = "DigitalOcean region"
+  type        = string
+  default     = "ams3"
 }
