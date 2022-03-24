@@ -12,6 +12,8 @@ ssh_key   = "nameofyoursshkey"
 domain    = "yourveryhipdomain.com
 ```
 
+Or alternatively you can define them using environment variables like `export TF_VAR_api_token=...`.
+
 The API token is used by Terraform to create your infrastructure and the SSH key can be used to connect to the created droplet. You can create these at the DigitalOcean control panel. The domain should not yet exist as a resource in the control panel as Terraform will create it, but you do need to [point your domain to the DigitalOcean nameservers](https://docs.digitalocean.com/tutorials/dns-registrars/).
 
 Next, install the DigitalOcean provider and initialize Terraform:
