@@ -35,6 +35,20 @@ resource "digitalocean_firewall" "web" {
   }
 }
 
+resource "digitalocean_domain" "site" {
+  name = var.domain
+}
+
+resource "digitalocean_certificate" "cert" {
+  name    = "load-balancer-cert"
+  type    = "lets_encrypt"
+  domains = [digitalocean_domain.site.name]
+
+  lifecycle {
+    create_before_destroy = true
+  }
+}
+
 resource "digitalocean_loadbalancer" "public" {
   region   = var.region
   name     = "public-lb-1"
@@ -42,11 +56,13 @@ resource "digitalocean_loadbalancer" "public" {
   vpc_uuid = digitalocean_vpc.vpc.id
 
   forwarding_rule {
-    entry_port     = 80
-    entry_protocol = "http"
+    entry_port     = 443
+    entry_protocol = "https"
 
     target_port     = local.app_port
     target_protocol = "http"
+
+    certificate_name = digitalocean_certificate.cert.name
   }
 
   healthcheck {

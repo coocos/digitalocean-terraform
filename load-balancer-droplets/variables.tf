@@ -14,3 +14,8 @@ variable "droplet_count" {
   type        = number
   default     = 2
 }
+
+variable "domain" {
+  description = "Name of domain to point to the load balancer"
+  type        = string
+}
