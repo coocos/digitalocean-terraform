@@ -9,7 +9,7 @@ Create a `terraform.tfvars` file with the name of your SSH key @ DigitalOcean, y
 ```shell
 api_token = "yourapitokenshouldgohere"
 ssh_key   = "nameofyoursshkey"
-domain    = "yourveryhipdomain.com
+domain    = "yourveryhipdomain.com"
 ```
 
 Or alternatively you can define them using environment variables like `export TF_VAR_api_token=...`.
