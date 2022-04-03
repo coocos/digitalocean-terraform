@@ -3,3 +3,6 @@
 *.tfstate*
 *.cfg
 .terraform.lock.hcl
+.venv
+.vscode
+__pycache__
