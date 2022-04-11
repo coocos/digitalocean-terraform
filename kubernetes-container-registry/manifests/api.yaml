@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: event-api
+spec:
+  selector:
+    matchLabels:
+      app: event-api
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: event-api
+    spec:
+      containers:
+      - name: event-api
+        image: api:0.1
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "250m"
+        ports:
+        - containerPort: 8000
+        env:
+          - name: REDIS_ADDRESS
+            value: "redis:6379"
+          - name: REDIS_EVENT_QUEUE
+            value: "events"
