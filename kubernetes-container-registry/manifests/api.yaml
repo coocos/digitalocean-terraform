@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: event-api
-        image: api:0.1
+        image: registry.digitalocean.com/your-unique-container-registry-name/api:0.1
         resources:
           limits:
             memory: "128Mi"
@@ -23,6 +23,6 @@ spec:
         - containerPort: 8000
         env:
           - name: REDIS_ADDRESS
-            value: "redis:6379"
+            value: "redis://redis-service:6379"
           - name: REDIS_EVENT_QUEUE
             value: "events"
