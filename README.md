@@ -1,6 +1,6 @@
 # digitalocean-terraform
 
-Terraform examples / experiments for setting up infrastructure @ DigitalOcean.
+Terraform examples / experiments for setting up infrastructure like Kubernetes clusters @ DigitalOcean.
 
 ## Examples
 

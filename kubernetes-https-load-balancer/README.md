@@ -51,7 +51,7 @@ kube-system   cilium-operator-55d7d6bbd7-k5jvv   1/1     Running   0            
 ...
 ```
 
-Next, replace [the value of the do-load-balancer-certificate-id annotation in the load balancer definition in manifests/manifests.yaml](./manifests/manifest.yaml) using the certificate ID outputted by Terraform. You can also grab the certificate ID via `doctl compute certificate list`. DigitalOcean will use the annotation behind the scenes to enable HTTPS for the load balancer and also to create an A record to the external load balancer IP.
+Next, replace [the value of the do-load-balancer-certificate-id annotation in the load balancer definition in manifests/manifests.yaml](./manifests/manifest.yaml) using the certificate ID outputted by Terraform. You can also grab the certificate ID via `doctl compute certificate list` and for example just use `sed` to replace it. Or perhaps you might even want to use the Terraform Kubernetes provider to create the load balancer and read the certificate ID using a data source. No matter how you go about creating your annotated load balancer, DigitalOcean will use the annotation behind the scenes to enable HTTPS for the load balancer and also to create an A record to the external load balancer IP.
 
 Now you can finally deploy Nginx and create the load balancer via `kubectl apply -f manifests/manifest.yaml`. It will take a while for DigitalOcean to fully create the load balancer but eventually you should be able to see an external IP for your load balancer via `kubectl get svc`:
 
