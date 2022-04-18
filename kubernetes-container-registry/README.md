@@ -1,4 +1,4 @@
-# Kubernetes, microservices & private container registry
+# Kubernetes & private container registry
 
 This example demonstrates how to use Terraform to create an autoscaling DigitalOcean Kubernetes cluster and a private container registry, deploy a few microservices from that registry and expose one of them over an HTTPS load balancer.
 
@@ -19,7 +19,7 @@ We will use Terraform to create three things:
 * Kubernetes cluster
 * container registry
 * domain & HTTPS certificate
-``
+
 To create these resources, you need to define the following variables in `terraform.tfvars` (or use environment variables like `export TF_VAR_api_token=...`):
 
 ```shell

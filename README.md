@@ -10,4 +10,4 @@ Examples include:
 * [placing multiple droplets behind an HTTPS load balancer](./load-balancer-droplets/)
 * [creating an S3 compatible Spaces bucket + CDN using a custom subdomain](./spaces-cdn/)
 * [launching a Kubernetes cluster and exposing Nginx pods using an HTTPS load balancer](./kubernetes-https-load-balancer)
-* [creating an autoscaling Kubernetes cluster and a private container registry, deploying microservices from the registry and exposing one of them via an HTTPS load balancer](./kubernetes-container-registry/)
+* [launching an autoscaling Kubernetes cluster and using a private container registry to deploy microservices](./kubernetes-container-registry/)
